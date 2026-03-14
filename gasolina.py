@@ -2,20 +2,19 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# 1. Carregar os dados do arquivo gasolina.csv
-df_gasolina = pd.read_csv('gasolina.csv')
+# Read the CSV file
+df = pd.read_csv('gasolina.csv')
 
-# 2. Gerar o gráfico de linha
+# Create the plot
 plt.figure(figsize=(10, 6))
-sns.lineplot(x='dia', y='venda', data=df_gasolina, marker='o')
-plt.title('Preço Médio da Gasolina em São Paulo (Julho/2021)')
-plt.xlabel('Dia')
+sns.lineplot(x='dia', y='venda', data=df, marker='o', label='Preço da Gasolina')
+plt.title('Preço Médio da Gasolina em São Paulo (Julho 2021)')
+plt.xlabel('Dia do Mês')
 plt.ylabel('Preço (R$)')
 plt.grid(True)
-plt.xticks(df_gasolina['dia'])
+plt.legend()
 
-# 3. Salvar o gráfico no arquivo gasolina.png
+# Save the plot as a PNG file
 plt.savefig('gasolina.png')
 
-# Exibir o gráfico (opcional)
-# plt.show()
+# plt.show() # Commented out to prevent plot from showing when script is run independently
